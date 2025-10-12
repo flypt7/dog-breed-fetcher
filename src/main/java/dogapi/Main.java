@@ -5,6 +5,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
         String breed = "hound";
         BreedFetcher breedFetcher = new CachingBreedFetcher(new BreedFetcherForLocalTesting());
         int result = getNumberOfSubBreeds(breed, breedFetcher);
@@ -13,6 +14,14 @@ public class Main {
         breed = "cat";
         result = getNumberOfSubBreeds(breed, breedFetcher);
         System.out.println(breed + " has " + result + " sub breeds");
+
+        /* Testing DogApiBreedFetcher.getSubBreeds() (works in dog-breed-fetcher branch)
+        DogApiBreedFetcher testFetcher = new DogApiBreedFetcher();
+        List<String> subBreeds = testFetcher.getSubBreeds("hound");
+        for (int i = 0; i < subBreeds.size(); i++) {
+            System.out.println(subBreeds.get(i));
+        }
+         */
     }
 
     /**
