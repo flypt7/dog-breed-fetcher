@@ -26,7 +26,6 @@ public class DogApiBreedFetcher implements BreedFetcher {
     public List<String> getSubBreeds(String breed) {
         client.newBuilder()
                 .build();
-        final MediaType mediaType = MediaType.parse("application/json");
         final JSONObject requestBody = new JSONObject();
         requestBody.put("breed", breed);
         // final RequestBody body = RequestBody.create(mediaType, requestBody.toString()); // was used in lab 5, not sure what it does... method used to be "POST" in line 40 with iit being used as the body
