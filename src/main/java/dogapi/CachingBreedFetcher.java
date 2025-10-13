@@ -24,21 +24,16 @@ public class CachingBreedFetcher implements BreedFetcher {
 
     @Override
     public List<String> getSubBreeds(String breed) {
+
         if (this.cacheMap.containsKey(breed)) {
             return this.cacheMap.get(breed);
         }
 
-        try {
-            List<String> subBreeds = this.fetcher.getSubBreeds(breed);
-            callsMade++;
-            this.cacheMap.put(breed, subBreeds);
+        callsMade++;
+        List<String> subBreeds = this.fetcher.getSubBreeds(breed);
+        this.cacheMap.put(breed, subBreeds);
 
-            return subBreeds;
-
-        } catch (BreedNotFoundException e) {
-            // TODO: is it fine to just return an empty ArrayList here?
-            return new ArrayList<>();
-        }
+        return subBreeds;
     }
 
     public int getCallsMade() {
