@@ -15,13 +15,6 @@ public class Main {
         result = getNumberOfSubBreeds(breed, breedFetcher);
         System.out.println(breed + " has " + result + " sub breeds");
 
-        /* Testing DogApiBreedFetcher.getSubBreeds() (works in dog-breed-fetcher branch)
-        DogApiBreedFetcher testFetcher = new DogApiBreedFetcher();
-        List<String> subBreeds = testFetcher.getSubBreeds("hound");
-        for (int i = 0; i < subBreeds.size(); i++) {
-            System.out.println(subBreeds.get(i));
-        }
-         */
     }
 
     /**
@@ -33,8 +26,6 @@ public class Main {
      * returned by the fetcher
      */
     public static int getNumberOfSubBreeds(String breed, BreedFetcher breedFetcher) {
-        // TODO Task 3 implement this code so that it is entirely consistent with its provided documentation.
-        // return statement included so that the starter code can compile and run.
-        return -1;
+        return breedFetcher.getSubBreeds(breed).size();
     }
 }
